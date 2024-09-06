@@ -9,22 +9,26 @@ let finalArr = [];
 
 
 function CartesianPrint(arr, arr1) {
-    // Initialize an empty array to store the Cartesian product pairs
+    // Initialize an empty array to store the formatted Cartesian product pairs
     let arr2 = [];
-    
+
     // Outer loop: Iterate through each element of the first array
-    for(let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         // Inner loop: Iterate through each element of the second array
-        for(let j = 0; j < arr1.length; j++) {
-            // For each combination, push the elements from both arrays to arr2
-            arr2.push(arr[i], arr1[j]);
+        for (let j = 0; j < arr1.length; j++) {
+            // For each combination, push a formatted string with curly brackets
+            arr2.push(`{${arr[i]}, ${arr1[j]}}`);
         }
     }
-    
-    // Return the array containing all the Cartesian product pairs
-    return arr2;
+
+    // Return the array containing all the formatted Cartesian product pairs
+    return arr2.join(", "); // Joining them as a string, separated by commas
 }
 
+// Example usage:
+let array1 = [1, 2];
+let array2 = ['a', 'b'];
+console.log(CartesianPrint(array1, array2));
 
 function powerSet(S) {
     // Initialize an empty array to store all subsets
